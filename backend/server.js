@@ -58,10 +58,11 @@ const generateGame = () => {
   return data;
 };
 const gameSpots = shuffle(generateGame());
-console.log(gameSpots.length, gameSpots);
+// console.log(gameSpots.length, gameSpots);
 
 app.get("/gimmiRole", (req, res) => {
   const player = req.query.name;
+  console.log(req);
   if (inGameCount >= gameSpots.length) {
     res.send("fullGame");
   } else {
@@ -70,6 +71,7 @@ app.get("/gimmiRole", (req, res) => {
     res.send(theRole);
   }
   inGameCount += 1;
+  console.log(inGameCount);
 });
 
 app.get("/getRules", (req, res) => {

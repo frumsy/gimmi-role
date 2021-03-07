@@ -5,11 +5,11 @@ const axios = require("axios");
 
 const app = express();
 const apiPort = 3005;
-
 process.env.NODE_ENV = "development";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.static("../front-end"));
 app.use(bodyParser.json());
 
 let currentRoles = { jester: 1, something: 2 };
